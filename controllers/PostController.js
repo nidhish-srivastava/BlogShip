@@ -28,12 +28,21 @@ const createPost = async (req, res) => {
 
 }
 
-
 const getPosts = async (req, res) => {
    const posts = await PostModel.find().populate('author', ['username']).sort({ createdAt: -1 })
    res.json(posts)
 }
 
+const myPosts = async(req,res) =>{
+   const username = req.params.username
+   const myPosts = await PostModel.find({}).populate({
+      path : 'author',
+      match : {username : username}
+   }).exec()
+   const filteredPosts = myPosts.filter(post => post.author !== null);
+   res.json(filteredPosts)
+}
 
 
-module.exports = { createPost, getPosts}
+
+module.exports = { createPost, getPosts,myPosts}
