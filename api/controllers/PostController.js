@@ -1,9 +1,8 @@
 const PostModel = require("../models/Post.js")
 const fs = require('fs')
 const jwt = require('jsonwebtoken');
-const dotenv = require('dotenv')
-dotenv.config()
 
+const secret = "sdiasggdaksdkas"
 const createPost = async (req, res) => {
    const { originalname, path } = req.file
    const parts = originalname.split('.');
@@ -13,7 +12,7 @@ const createPost = async (req, res) => {
 
    // Now we dont want to create the post without authentication
    const { token } = req.cookies
-   jwt.verify(token, process.env.secret, {}, async (err, info) => {
+   jwt.verify(token, secret, {}, async (err, info) => {
       if (err) throw err
 
       const { title, descp } = req.body;
