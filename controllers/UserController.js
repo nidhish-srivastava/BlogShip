@@ -24,7 +24,7 @@ const register = async (req, res) => {
 const login = async (req, res) => {
     const { username, password } = req.body;
     const userDoc = await UserModel.findOne({ username });
-    const passOk = bcrypt.compareSync(password, userDoc.password);
+    const passOk = bcrypt.compare(password, userDoc.password);
     if (passOk) {
         jwt.sign({ username, id: userDoc._id }, process.env.secret, {}, (err, token) => {
             if (err) throw err;
@@ -40,7 +40,7 @@ const login = async (req, res) => {
 
 const profile = async (req, res) => {
     const { token } = req.cookies
-    jwt.verify(token, secret, {}, (err, info) => {
+    jwt.verify(token, process.env.secret, {}, (err, info) => {
         if (err) throw err
         res.json(info)
     })
