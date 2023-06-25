@@ -40,10 +40,10 @@ const login = async (req, res) => {
 
 const profile = async (req, res) => {
     const { token } = req.cookies
-    jwt.verify(token, process.env.secret, {}, (err, info) => {
-        if (err) throw err
-        res.json(info)
-    })
+        jwt.verify(token, process.env.secret, {}, (err, info) => {
+            if (err) res.json("Please Login to continue")
+            res.json(info)
+        })
 }
 
 const logout = async (req, res) => {
