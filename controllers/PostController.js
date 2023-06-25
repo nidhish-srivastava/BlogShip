@@ -1,4 +1,4 @@
-const Model = require("./model.js")
+const PostModel = require("../models/Post.js")
 const fs = require('fs')
 
 const createPost = async(req,res)=>{
@@ -9,7 +9,7 @@ const createPost = async(req,res)=>{
      const newPath = path+'.'+ext;
      fs.renameSync(path,newPath);
      const {title,descp} = req.body;
-     const postDoc = await Model.create({
+     const postDoc = await PostModel.create({
         title,
         descp,
         file: newPath,
@@ -21,7 +21,7 @@ const createPost = async(req,res)=>{
 }
 
 const getAllPosts = async(req,res)=>{
-     const data = await Model.find().sort({createdAt : -1})
+     const data = await PostModel.find().sort({createdAt : -1})
      res.send(data)
 }
 

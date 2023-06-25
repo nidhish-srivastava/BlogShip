@@ -3,12 +3,16 @@ const mongoose  =  require('mongoose')
 const app = express()
 const dotenv  = require('dotenv')
 dotenv.config()
-const router  = require('./route.js')
+const PostRouter  = require('./routes/PostRoute.js')
+const UserRouter  = require('./routes/UserRoute.js')
 const cors = require('cors')
+const cookieParser = require('cookie-parser')
 
 app.use(express.json())
+app.use(cookieParser())
 app.use(cors())
-app.use(router)
+app.use(PostRouter)
+app.use(UserRouter)
 app.use('/uploads',express.static(__dirname + '/uploads'))
 
 const start = async()=>{
