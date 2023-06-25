@@ -1,12 +1,11 @@
 const express = require('express')
 const multer = require('multer')
-const { createPost, getMyPosts,getAllPosts } = require('../controllers/PostController.js')
+const { createPost,getPosts } = require('../controllers/PostController.js')
 const uploadMiddleware = multer({ dest: 'uploads/' })
 
 const router = express.Router()
 
 router.post('/post', uploadMiddleware.single('file'), createPost)
-router.get('/', getMyPosts)
-router.get('/all',getAllPosts)
+router.get('/',getPosts)
 
 module.exports = router

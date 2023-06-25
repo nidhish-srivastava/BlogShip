@@ -29,14 +29,11 @@ const createPost = async (req, res) => {
 }
 
 
-const getMyPosts = async (req, res) => {
+const getPosts = async (req, res) => {
    const posts = await PostModel.find().populate('author', ['username']).sort({ createdAt: -1 })
    res.json(posts)
 }
 
-const getAllPosts = async(req,res)=>{
-   const allPosts = await PostModel.find().sort({createdAt : -1})
-   res.json(allPosts)
-}
 
-module.exports = { createPost, getMyPosts ,getAllPosts}
+
+module.exports = { createPost, getPosts}
