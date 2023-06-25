@@ -8,6 +8,5 @@ const router = express.Router()
 router.post('/post', uploadMiddleware.single('file'), createPost)
 router.get('/',getPosts)
 router.get('/:username',myPosts)
-router.get('/:id',getSinglePost)
 
 module.exports = router

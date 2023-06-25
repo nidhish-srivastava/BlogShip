@@ -43,12 +43,5 @@ const myPosts = async(req,res) =>{
    res.json(filteredPosts)
 }
 
-const getSinglePost = async(req,res)=>{
-      const {id} = req.params
-      console.log(id);
-      const getSinglePost =  await PostModel.find(id).populate('author',['username'])
-      res.json(getSinglePost)
-}
 
-
-module.exports = { createPost, getPosts,myPosts,getSinglePost}
+module.exports = { createPost, getPosts,myPosts}
