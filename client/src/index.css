@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap');
+
+html{
+    color-scheme: light dark;
+}
+
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: 'Open-sans',sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+
+h1,h2,h3,h4,h5,li,p,li{
+    margin: 0;
+}
+
+
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  align-items: center;
+}
+
+.navbar a{
+    padding: 0.7rem;
+    margin-left: 2rem;
+    border-radius: .51rem;
+    font-size: 1.5rem;
+}
+
+.left{
+    display: flex;
+  align-items: center;
+
+}
+
+
+.logo {
+    font-size: 1.7rem;
+    font-family: "Montserrat", sans-serif;
+    background: -webkit-linear-gradient(#46ab87, #46a00a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+.left{
+
+}
+
+.right{
+    
+}
+
+
+img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.post-container{
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(25rem,100%),1fr));
+    gap: 3rem;
+}
+
+.post {
+    word-wrap: break-word;
+}
+
+.my-posts-img{
+    width: 30%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 1/1;
+}
+.edit-row{
+    text-align: end;
+    margin-top: 5px;
+}
+.edit-btn{
+    padding: 0.8rem;
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.login input,.login button{
+    padding: .6rem;
+    border-radius: 1rem;
+    border: none;
+    font-size: 1.1rem;
+}
+
+
+.login button{
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.create-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-left: 4rem;
+
+    margin-top: 2rem;
+}
+.create-container input{
+    padding: 0.8rem;
+    outline: none;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+}
+
+.create-container textarea{
+    width: 90%;
+    padding: .8rem;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    resize: none;
+    background-color: transparent;
+}
+
+.create-container .file input{
+   font-size: 1rem;
+}
+
+.create-container button{
+    margin: 0 auto;
+    font-size: 1.4rem;
+    border: none;
+    padding: 0.8rem;
+    border-radius: .4rem;
+    background-color: white;
+    cursor: pointer;
+    color: black;
+}
