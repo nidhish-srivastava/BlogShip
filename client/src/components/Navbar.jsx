@@ -6,15 +6,20 @@ const Navbar = () => {
   const { userInfo, setUserInfo } = useBlogContext();
   const navigate = useNavigate();
 
+  const getProfileInfo = async() =>{
+      const response = await fetch("http://localhost:4000/profile",{
+        credentials: "include"
+      })
+      const data =await response.json()
+      if(response.ok){
+        console.log("user");
+        setUserInfo(data)
+        console.log(data)
+      }
+  }
+
   useEffect(() => {
-    fetch("http://localhost:4000/profile", {
-      credentials: "include",
-    }).then((response) => {
-      response.json().then((userInfo) => {
-        setUserInfo(userInfo);
-        console.log(userInfo);
-      });
-    });
+   getProfileInfo()
   }, []);
 
   const username = userInfo?.username;
@@ -36,6 +41,7 @@ const Navbar = () => {
         <div className="logo" style={{ marginRight: "auto" }}>
           <h2>BlogShip</h2>
         </div>
+        <Link to={`/`}>Home</Link>
       </div>
       <div className="right">
         {username ? (

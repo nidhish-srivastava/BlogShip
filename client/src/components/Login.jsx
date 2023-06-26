@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useBlogContext} from "../context/context"
 import { useNavigate } from 'react-router-dom';
 
@@ -17,17 +17,16 @@ const LoginPage = () => {
             headers: {'Content-Type':'application/json'},
             credentials: 'include',
           });
-          console.log(response);
         if(response.ok){
-            response.json().then(userInfo => {
-                setUserInfo(userInfo);
-                navigate(`/${userInfo?.username}/${userInfo?.id}`)
-            });
+            const data = await response.json()
+            console.log(data);
+            setUserInfo(data)
+            navigate(`/${userInfo?.username}/${userInfo?.id}`)
         } else {
             alert('wrong credentials')
         }
-        
     }
+
    
   return (
         <form className='login' onSubmit={login}>
