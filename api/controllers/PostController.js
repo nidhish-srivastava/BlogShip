@@ -42,19 +42,19 @@ const getPosts = async (req, res) => {
    }
 }
 
-const myPosts = async (req, res) => {
-   try {
-      const username = req.params.username
-      const myPosts = await PostModel.find({}).populate({
-         path: 'author',
-         match: { username: username }
-      }).exec()
-      const filteredPosts = myPosts.filter(post => post.author !== null);
-      res.json(filteredPosts)
-   } catch (error) {
-      res.status(500).json("Server error")      
-   }
-}
+// const myPosts = async (req, res) => {
+//    try {
+//       const username = req.params.username
+//       const myPosts = await PostModel.find({}).populate({
+//          path: 'author',
+//          match: { username: username }
+//       }).exec()
+//       const filteredPosts = myPosts.filter(post => post.author !== null);
+//       res.json(filteredPosts)
+//    } catch (error) {
+//       res.status(500).json("Server error")      
+//    }
+// }
 
 
 module.exports = { createPost, getPosts, myPosts }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import {useBlogContext} from "../context/context"
 import { useNavigate } from 'react-router-dom';
 
@@ -8,6 +8,7 @@ const LoginPage = () => {
     const {setUserInfo,userInfo} = useBlogContext()
     const navigate = useNavigate()
 
+    
     const login = async (e) => {
         e.preventDefault();
        

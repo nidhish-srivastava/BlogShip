@@ -11,10 +11,10 @@ const Navbar = () => {
         credentials: "include"
       })
       const data =await response.json()
+      console.log(data);
       if(response.ok){
         console.log("user");
         setUserInfo(data)
-        console.log(data)
       }
   }
 

@@ -23,7 +23,7 @@ const Create = () => {
     })
 
     if(response.ok){
-        navigate(`/${userInfo?.username}/${userInfo?.id}`)
+        navigate(`/my-blogs/${userInfo?.username}`)
     }
   }
      catch (error) {
