@@ -22,7 +22,7 @@ const LoginPage = () => {
             const data = await response.json()
             console.log(data);
             setUserInfo(data)
-            navigate(`/${userInfo?.username}/${userInfo?.id}`)
+           navigate(`/${userInfo?.username }/${userInfo?.id}`)
         } else {
             alert('wrong credentials')
         }
