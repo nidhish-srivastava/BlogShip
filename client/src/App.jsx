@@ -14,13 +14,14 @@ import Dashboard from './components/Dashboard'
 import MyPosts from './components/MyPosts'
 import { useBlogContext } from './context/context'
 import GetSinglePost from './components/GetSinglePost'
+import Profile from './components/Profile'
 
 const App = () => {
-  const { userInfo } = useBlogContext();
   return (
     <BrowserRouter>
     <Navbar/>
     <Routes>
+      <Route path='/profile' element = {<Profile/>} />
       <Route path='/' element = {<Dashboard/>} />
       <Route path='/:id2' element = {<GetSinglePost/>} />
       <Route path='/my-blogs/:id' element = {<MyPosts/>} />

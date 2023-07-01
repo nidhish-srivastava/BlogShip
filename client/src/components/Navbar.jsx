@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useBlogContext } from "../context/context";
+import a from '../1.jpg'
 
 const Navbar = () => {
   const { userInfo, setUserInfo } = useBlogContext();
@@ -23,7 +24,6 @@ const Navbar = () => {
   }, []);
 
   const username = userInfo?.username;
-  const userid = userInfo?.id
 
   const logout = () => {
     fetch("http://localhost:4000/logout", {
@@ -50,6 +50,11 @@ const Navbar = () => {
             <Link to={`/my-blogs/${username}`}>My Blogs</Link>
             <Link to="/create">Create new post</Link>
             <a onClick={logout}>Logout</a>
+            <Link to={`/profile`}>
+            <div className="profile-pic-wrapper">
+              <img src={a}/>
+            </div>
+            </Link>
           </>
         ) : (
           <>
