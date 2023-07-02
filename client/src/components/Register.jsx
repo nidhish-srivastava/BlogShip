@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { useBlogContext } from '../context/context';
 
 const RegisterPage = () => {
+    const {dp,setDp} = useBlogContext()
     const [username,setUsername] = useState("");
     const [password,setPassword] = useState("");
 
@@ -9,7 +11,7 @@ const RegisterPage = () => {
        
         const response = await fetch("http://localhost:4000/register",{
                 method:'POST',
-                body: JSON.stringify({username,password}),
+                body: JSON.stringify({username,password,dp}),
                 headers: {'Content-Type':'application/json'},
             })
             console.log(response);

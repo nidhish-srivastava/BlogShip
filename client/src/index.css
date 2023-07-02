@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap');
 
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 html{
     color-scheme: light dark;
 }
@@ -10,7 +10,7 @@ html{
 
 body{
     margin: 0;
-    font-family: 'Open-sans',sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 a{
