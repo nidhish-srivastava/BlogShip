@@ -7,7 +7,7 @@ export const useBlogContext = () => useContext(BlogContext)
 
 export const BlogProvider = ({children}) =>{
     const [userInfo,setUserInfo] = useState({})
-    const [dp,setDp] = useState(a)
+    const [dp,setDp] = useState("")
 
     const final = {
         userInfo,setUserInfo,
