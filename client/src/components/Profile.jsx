@@ -1,38 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useBlogContext } from '../context/context'
-import a from '../1.jpg'
 
 function Profile() {
     const {userInfo,dp,setDp} = useBlogContext()
-    const [changeLabel,setChangeLabel] = useState(false)
-  
-    const changeHandler = async(e)=>{
-        e.preventDefault()
-        const formData = new FormData()
-        formData.set("dp",dp)
-        try {
-           const response =  await fetch("http://localhost:4000/image",{
-                method : "POST",
-                body : formData,
-                credentials : 'include'
-            })
-            console.log(response);
-        } catch (error) {
-            console.log(error);
-        }
-
+      
+    const changeDpHandler = (e) =>{
+          const file = e.target.files[0]
+          if(file){
+            const reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onloadend = () =>{
+            setDp(reader.result)  
+            }
+          }
     }
+
+    // const uploadDp = async(e)=>{
+    //   console.log(dp);
+    //     e.preventDefault()
+    //     try {
+    //        const response =  await fetch("http://localhost:4000/image",{
+    //             method : "POST",
+    //             body : dp,
+    //         })
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
   return (
     <main className='profile-page-container'>
         <div className="profile-image-big-wrapper">
-        <img src={a} alt="" />
+        <img src={dp} alt="" />
         </div>
         <label for="file-upload" class="custom-file-upload">
         Choose a file
       </label>
-        <input type="file" id='file-upload' onChange={(e) => setDp(e.target.files[0])}/>
-        {/* <button onClick={changeHandler} className='change-dp' >Change Profile Pic</button> */}
+        <input type="file" id='file-upload' onChange={changeDpHandler}/>
+        {/* <button onClick={uploadDp} className='change-dp'>Change Profile Pic</button> */}
         <h2>{userInfo?.username}</h2>
     </main>
   )
