@@ -13,9 +13,9 @@ const Navbar = () => {
       })
       const data =await response.json()
       if(response.ok){
-        console.log("user");
+        // console.log("user");
         setUserInfo(data)
-        console.log(data)
+        // console.log(data)
       }
   }
 

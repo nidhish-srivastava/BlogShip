@@ -10,7 +10,7 @@ const MyPosts = () => {
     const myPosts = async()=>{
         const response = await fetch(`http://localhost:4000/${username}`)
         const data = await response.json()
-        console.log(data);
+        // console.log(data);
         setMyBlogArray(data)
       }
       useEffect(()=>{

@@ -4,6 +4,7 @@ import a from '../1.jpg'
 
 function Profile() {
     const {userInfo,dp,setDp} = useBlogContext()
+    const [changeLabel,setChangeLabel] = useState(false)
   
     const changeHandler = async(e)=>{
         e.preventDefault()
@@ -27,8 +28,11 @@ function Profile() {
         <div className="profile-image-big-wrapper">
         <img src={a} alt="" />
         </div>
-        <input type="file" onChange={(e) => setDp(e.target.files[0])}/>
-        <button onClick={changeHandler}>Change Profile Pic</button>
+        <label for="file-upload" class="custom-file-upload">
+        Choose a file
+      </label>
+        <input type="file" id='file-upload' onChange={(e) => setDp(e.target.files[0])}/>
+        {/* <button onClick={changeHandler} className='change-dp' >Change Profile Pic</button> */}
         <h2>{userInfo?.username}</h2>
     </main>
   )
