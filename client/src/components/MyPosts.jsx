@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useBlogContext } from "../context/context";
-
+import { Link } from 'react-router-dom';
 
 const MyPosts = () => {
   const { userInfo } = useBlogContext();
@@ -10,7 +10,7 @@ const MyPosts = () => {
     const myPosts = async()=>{
         const response = await fetch(`http://localhost:4000/${username}`)
         const data = await response.json()
-        // console.log(data);
+        console.log(data);
         setMyBlogArray(data)
       }
       useEffect(()=>{
@@ -26,16 +26,20 @@ const MyPosts = () => {
             <img src={`http://localhost:4000/${e?.file}`} alt="" className='my-posts-img' />
             </div>
             <h3>{e?.descp}</h3>
-            {/* <div>
+             <div>
+               <button className='read-blog-btn' >Click to Read the Blog</button>
               {userInfo?.id === e?.author?._id && (
                 <div className="edit-row">
-                  <Link to={`/edit/${e._id}`} className="edit-btn">
+                  <Link to={``} className="edit-btn">
                     Edit this post
+                  </Link>
+                  <Link to={``} className="delete-btn">
+                    Delete this post
                   </Link>
                 </div>
               )}
-            </div> */}
-              <h3 style={{color : "green"}}>-{e?.author?.username}</h3>
+            </div> 
+          
           </div>
         );
       })}

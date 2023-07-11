@@ -46,7 +46,7 @@ const Navbar = () => {
       <div className="right">
         {username ? (
           <>
-            <Link to={`/${userInfo?.username}/${userInfo?.id}`}>All Blogs</Link>
+            <Link to={`/all-posts`}>All Blogs</Link>
             <Link to={`/my-blogs/${username}`}>My Blogs</Link>
             <Link to="/create">Create new post</Link>
             <a onClick={logout}>Logout</a>

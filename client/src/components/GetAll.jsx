@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 
 const Get = () => {
   const [data, setData] = useState([]);
-  const { userInfo } = useBlogContext();
   const getData = async () => {
     const response = await fetch("http://localhost:4000");
     const data = await response.json()
-    // console.log(data);
+    console.log(data);
     setData(data);
   };
   useEffect(() => {
@@ -25,16 +24,7 @@ const Get = () => {
             <img src={`http://localhost:4000/${e?.file}`} alt="" />
             </div>
             <h3>{e?.descp}</h3>
-            <div>
-              {userInfo?.id === e?.author?._id && (
-                <div className="edit-row">
-                  <Link to={`/edit/${e._id}`} className="edit-btn">
-                    Edit this post
-                  </Link>
-                </div>
-              )}
-              <h3 style={{color : "green"}}>-{e?.author?.username}</h3>
-            </div>
+            <h3 style={{color : "green"}}>-{e?.author?.username}</h3>
           </div>
               </Link>
         );

@@ -11,32 +11,32 @@ function Profile() {
             const reader = new FileReader()
             reader.readAsDataURL(file)
             reader.onloadend = () =>{
-            setDp(reader.result)  
+            setDp(reader.result)  //* First converting it to base64,then setting the state for preview
             }
           }
     }
 
-    const uploadDp = async(e)=>{
-        e.preventDefault()
-        try {
-           const response =  await fetch("http://localhost:4000/image",{
-                method : "POST",
-                crossDomain : true,
-                headers : {
-                  "Content-Type" : "application/json",
-                  Accept : "application/json",
-                  "Access-Control-Allow-Origin" : "*"
-                },
-                body : JSON.stringify({
-                  dp : dp
-                }),
-            })
-            const data = await response.json()
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // const uploadDp = async(e)=>{
+    //     e.preventDefault()
+    //     try {
+    //        const response =  await fetch("http://localhost:4000/image",{
+    //             method : "POST",
+    //             crossDomain : true,
+    //             headers : {
+    //               "Content-Type" : "application/json",
+    //               Accept : "application/json",
+    //               "Access-Control-Allow-Origin" : "*"
+    //             },
+    //             body : JSON.stringify({
+    //               dp : dp
+    //             }),
+    //         })
+    //         const data = await response.json()
+    //         console.log(data);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
   return (
     <main className='profile-page-container'>
@@ -47,7 +47,7 @@ function Profile() {
         Choose a file
       </label>
         <input type="file" accept='image/*' id='file-upload' onChange={changeDpHandler}/>
-        <button onClick={uploadDp} className='change-dp'>Change Profile Pic</button>
+        {/* <button onClick={uploadDp} className='change-dp'>Change Profile Pic</button> */}
         <h2>{userInfo?.username}</h2>
     </main>
   )

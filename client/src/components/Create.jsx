@@ -9,6 +9,7 @@ const Create = () => {
   const navigate = useNavigate();
   const { userInfo } = useBlogContext();
   const [imagePreview,setImagePreview] = useState("")
+  const [mainContent,setMainContent] = useState("")
 
   const changeHandlerForFileUpload = (e) =>{
     setFile(e.target.files[0])
@@ -29,6 +30,7 @@ const Create = () => {
     formData.set("title", title);
     formData.set("descp", descp);
     formData.set("file", file);
+    formData.set("mainContent",mainContent)
     try {
       const response = await fetch("http://localhost:4000/post", {
         method: "POST",
@@ -65,7 +67,7 @@ const Create = () => {
         onChange={(e) => setDescp(e.target.value)}
       />
 
-      <textarea placeholder="Start Writing..." />
+      <textarea placeholder="Start Writing..." cols={`50`} rows={`10`} value={mainContent} onChange={e=>setMainContent(e.target.value)} />
 
       {imagePreview && <img className="img-preview" src={imagePreview}/>}
       <label for="file-upload" class="custom-file-upload">

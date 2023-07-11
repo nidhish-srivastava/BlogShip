@@ -118,12 +118,31 @@ img{
 }
 .edit-row{
     text-align: end;
-    margin-top: 5px;
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
 }
-.edit-btn{
+.edit-btn,.delete-btn{
     padding: 0.8rem;
     border: 1px solid white;
     background-color: transparent;
+}
+
+.read-blog-btn{
+   color: white;
+   padding: .61rem;
+   font-size: 1.1rem;
+   border: none;
+   cursor: pointer;
+   border-radius: 14px;
+   background-color: #24bb2e;
+}
+
+
+.edit-btn:hover,.delete-btn:hover{
+    background-color: white;
+    color: rgb(15, 15, 15);
+    font-weight: 600;
 }
 
 

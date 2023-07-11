@@ -21,7 +21,7 @@ const LoginPage = () => {
             const data = await response.json()
             console.log(data);
             setUserInfo(data)
-           navigate(`/${userInfo?.username }/${userInfo?.id}`)
+           navigate(`all-posts`)
         } else {
             alert('wrong credentials')
         }
